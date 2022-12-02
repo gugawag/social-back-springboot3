@@ -38,4 +38,9 @@ public class UsuarioControlador {
     public void apagar(@PathVariable("id") Long id) {
         this.usuarioServico.apagar(id);
     }
+
+    @GetMapping("/idosos")
+    public List<Usuario> getIdosos() {
+        return this.usuarioServico.getIdosos();
+    }
 }
