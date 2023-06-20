@@ -1,7 +1,7 @@
-package com.example.socialbackspring.servico;
+package br.edu.ifpb.gugawag.social.api.servico;
 
-import com.example.socialbackspring.modelo.Usuario;
-import com.example.socialbackspring.repositorio.UsuarioRepositorioIF;
+import br.edu.ifpb.gugawag.social.api.repositorio.UsuarioRepositorioIF;
+import br.edu.ifpb.gugawag.social.api.modelo.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

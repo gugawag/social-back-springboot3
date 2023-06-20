@@ -1,4 +1,4 @@
-package com.example.socialbackspring.modelo;
+package br.edu.ifpb.gugawag.social.api.modelo;
 
 import jakarta.persistence.*;
 

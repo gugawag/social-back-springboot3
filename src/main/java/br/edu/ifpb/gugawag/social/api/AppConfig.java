@@ -1,4 +1,4 @@
-package com.example.socialbackspring;
+package br.edu.ifpb.gugawag.social.api;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

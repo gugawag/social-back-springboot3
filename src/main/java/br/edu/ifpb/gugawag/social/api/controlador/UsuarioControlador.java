@@ -1,7 +1,7 @@
-package com.example.socialbackspring.controlador;
+package br.edu.ifpb.gugawag.social.api.controlador;
 
-import com.example.socialbackspring.modelo.Usuario;
-import com.example.socialbackspring.servico.UsuarioServico;
+import br.edu.ifpb.gugawag.social.api.modelo.Usuario;
+import br.edu.ifpb.gugawag.social.api.servico.UsuarioServico;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

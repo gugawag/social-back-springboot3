@@ -1,7 +1,7 @@
-package com.example.socialbackspring.repositorio;
+package br.edu.ifpb.gugawag.social.api.repositorio;
 
 
-import com.example.socialbackspring.modelo.Usuario;
+import br.edu.ifpb.gugawag.social.api.modelo.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
