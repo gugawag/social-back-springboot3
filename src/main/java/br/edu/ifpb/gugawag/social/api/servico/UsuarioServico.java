@@ -1,5 +1,7 @@
 package br.edu.ifpb.gugawag.social.api.servico;
 
+import br.edu.ifpb.gugawag.social.api.modelo.DadosListagemUsuarioDTO;
+import br.edu.ifpb.gugawag.social.api.modelo.DadosUsuarioDTO;
 import br.edu.ifpb.gugawag.social.api.repositorio.UsuarioRepositorioIF;
 import br.edu.ifpb.gugawag.social.api.modelo.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,16 +16,18 @@ public class UsuarioServico {
     @Autowired
     private UsuarioRepositorioIF usuarioRepositorio;
 
-    public List<Usuario> listarUsuarios() {
-        return this.usuarioRepositorio.findAll();
+    public List<DadosListagemUsuarioDTO> listarUsuarios(){
+        return this.usuarioRepositorio.findAll().stream().map(DadosListagemUsuarioDTO::new).toList();
     }
+
 
     public Usuario getUsuarioPorId(Long idUsuario) {
         return this.usuarioRepositorio.findById(idUsuario).orElse(null);
     }
 
     @Transactional
-    public Usuario inserirOuAtualizar(Usuario usuarioAInserir) {
+    public Usuario inserirOuAtualizar(DadosUsuarioDTO dadosUsuarioAInserir) {
+        Usuario usuarioAInserir = new Usuario(dadosUsuarioAInserir);
         Usuario usuarioInserido = this.usuarioRepositorio.save(usuarioAInserir);
         if (usuarioAInserir.getIdade() < 18) {
             throw new RuntimeException("Menor de idade");
@@ -40,4 +44,5 @@ public class UsuarioServico {
     public List<Usuario> getIdosos(){
         return this.usuarioRepositorio.getIdosos();
     }
+
 }

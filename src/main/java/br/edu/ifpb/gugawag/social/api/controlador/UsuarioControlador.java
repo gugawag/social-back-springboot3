@@ -1,7 +1,10 @@
 package br.edu.ifpb.gugawag.social.api.controlador;
 
+import br.edu.ifpb.gugawag.social.api.modelo.DadosListagemUsuarioDTO;
+import br.edu.ifpb.gugawag.social.api.modelo.DadosUsuarioDTO;
 import br.edu.ifpb.gugawag.social.api.modelo.Usuario;
 import br.edu.ifpb.gugawag.social.api.servico.UsuarioServico;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +18,7 @@ public class UsuarioControlador {
     private UsuarioServico usuarioServico;
 
     @GetMapping
-    public List<Usuario> listarUsuarios() {
+    public List<DadosListagemUsuarioDTO> listarUsuarios() {
         return this.usuarioServico.listarUsuarios();
     }
 
@@ -25,13 +28,13 @@ public class UsuarioControlador {
     }
 
     @PostMapping
-    public Usuario inserir(@RequestBody Usuario usuarioAInserir) {
+    public Usuario inserir(@RequestBody @Valid DadosUsuarioDTO usuarioAInserir) {
         return this.usuarioServico.inserirOuAtualizar(usuarioAInserir);
     }
 
     @PutMapping("/{id}")
-    public Usuario atualizar(@RequestBody Usuario usuarioAAtualizar) {
-        return this.usuarioServico.inserirOuAtualizar(usuarioAAtualizar);
+    public Usuario atualizar(@RequestBody @Valid DadosUsuarioDTO dadosUsuarioAAlterar) {
+        return this.usuarioServico.inserirOuAtualizar(dadosUsuarioAAlterar);
     }
 
     @DeleteMapping("/{id}")

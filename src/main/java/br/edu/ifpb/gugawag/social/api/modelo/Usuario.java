@@ -10,9 +10,20 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+
     private String cpf;
     private String nome;
     private Integer idade;
+
+    public Usuario() {
+    }
+
+    public Usuario(DadosUsuarioDTO dadosUsuario) {
+        this.id = dadosUsuario.id();
+        this.cpf = dadosUsuario.cpf();
+        this.nome = dadosUsuario.nome();
+        this.idade = dadosUsuario.idade();
+    }
 
     public Long getId() {
         return id;
